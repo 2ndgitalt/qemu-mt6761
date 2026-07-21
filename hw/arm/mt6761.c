@@ -151,6 +151,8 @@ static void mt6761_map_peripherals(DeviceState *gicdev)
     object_property_add_child(OBJECT(gicdev), "topckgen", OBJECT(dev));
     sysbus_realize_and_unref(SYS_BUS_DEVICE(dev), &error_fatal);
     sysbus_mmio_map(SYS_BUS_DEVICE(dev), 0, 0x10000000);
+    /* Device tree defines topckgen with two registers, map the second one */
+    sysbus_mmio_map(SYS_BUS_DEVICE(dev), 1, 0x1000c000);
 
     dev = qdev_new(TYPE_MTK_SYSREG);
     qdev_prop_set_uint32(dev, "length", 0x1000);
@@ -158,11 +160,14 @@ static void mt6761_map_peripherals(DeviceState *gicdev)
     sysbus_realize_and_unref(SYS_BUS_DEVICE(dev), &error_fatal);
     sysbus_mmio_map(SYS_BUS_DEVICE(dev), 0, 0x10001000);
 
-    dev = qdev_new(TYPE_MTK_SYSREG);
-    qdev_prop_set_uint32(dev, "length", 0x1000);
-    object_property_add_child(OBJECT(gicdev), "apmixed", OBJECT(dev));
-    sysbus_realize_and_unref(SYS_BUS_DEVICE(dev), &error_fatal);
-    sysbus_mmio_map(SYS_BUS_DEVICE(dev), 0, 0x1000c000);
+    /* apmixed was requested initially, but it overlaps with topckgen's second mapping
+     * in the device tree source:
+     *   topckgen@10000000 { reg = <0x0 0x10000000 0x0 0x1000 0x0 0x1000c000 0x0 0x1000>; };
+     *   apmixed@1000c000 { reg = <0x0 0x1000c000 0x0 0x1000>; };
+     *
+     * In QEMU, we map topckgen to cover both memory regions and skip mapping apmixed
+     * explicitly to avoid memory region collisions.
+     */
 
     mt6761_map_real_devices(gicdev);
 }

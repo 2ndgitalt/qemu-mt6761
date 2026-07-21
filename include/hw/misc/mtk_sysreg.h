@@ -13,6 +13,7 @@ struct MTKSysRegState {
 
     /*< public >*/
     MemoryRegion iomem;
+    MemoryRegion iomem2;
     uint32_t length;
 };
 

@@ -53,6 +53,10 @@ static void mtk_sysreg_realize(DeviceState *dev, Error **errp)
     memory_region_init_io(&s->iomem, OBJECT(s), &mtk_sysreg_ops, s,
                           "mtk-sysreg", s->length);
     sysbus_init_mmio(sbd, &s->iomem);
+
+    memory_region_init_io(&s->iomem2, OBJECT(s), &mtk_sysreg_ops, s,
+                          "mtk-sysreg-second", s->length);
+    sysbus_init_mmio(sbd, &s->iomem2);
 }
 
 static const Property mtk_sysreg_properties[] = {
