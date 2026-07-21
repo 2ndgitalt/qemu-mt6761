@@ -1,0 +1,38 @@
+name: Build MT6761 QEMU
+
+on:
+  push:
+    branches: [ "hw/mt6761-stratus" ]
+  pull_request:
+    branches: [ "hw/mt6761-stratus" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Install Build Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ninja-build python3 python3-pip libglib2.0-dev libpixman-1-dev flex bison
+
+    - name: Configure QEMU (Only aarch64 to save time)
+      run: |
+        mkdir build
+        cd build
+        # We only build the aarch64 system emulator to speed up the CI
+        ../configure --target-list=aarch64-softmmu --disable-docs --disable-tools
+
+    - name: Compile QEMU
+      run: |
+        cd build
+        make -j$(nproc)
+
+    - name: Upload QEMU Binary Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: qemu-system-aarch64-mt6761
+        path: build/qemu-system-aarch64
