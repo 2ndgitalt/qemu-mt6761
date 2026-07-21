@@ -698,6 +698,7 @@ config MT6761
     depends on TCG && AARCH64
     select ARM_GIC
     select DEVICE_TREE
+    select MTK_SYSREG
     select SERIAL
     select PL031
     select PL061

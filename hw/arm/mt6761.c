@@ -11,6 +11,7 @@
 #include "hw/char/serial.h"
 #include "hw/char/pl011.h"
 #include "hw/misc/unimp.h"
+#include "hw/misc/mtk_sysreg.h"
 #include "system/system.h"
 
 #define MT6761_RAM_BASE   0x40000000
@@ -54,8 +55,6 @@ static void mt6761_map_real_devices(DeviceState *gicdev)
 static void mt6761_map_peripherals(DeviceState *gicdev)
 {
     static const Mt6761Peripheral peripherals[] = {
-        { 0x10000000, 0x1000, "mt6761.topckgen" },
-        { 0x10001000, 0x1000, "mt6761.infracfg_ao" },
         { 0x10002000, 0x1000, "mt6761.io_cfg_lt" },
         { 0x10002200, 0x1000, "mt6761.io_cfg_lm" },
         { 0x10002400, 0x1000, "mt6761.io_cfg_lb" },
@@ -70,7 +69,6 @@ static void mt6761_map_peripherals(DeviceState *gicdev)
         { 0x10008000, 0x1000, "mt6761.apxgpt" },
         { 0x1000a000, 0x1000, "mt6761.hacc" },
         { 0x1000b000, 0x1000, "mt6761.apirq" },
-        { 0x1000c000, 0x1000, "mt6761.apmixed" },
         { 0x1000d000, 0x1000, "mt6761.pwrap" },
         { 0x1000f000, 0x1000, "mt6761.sleep_reg_md" },
         { 0x10010000, 0x1000, "mt6761.kp" },
@@ -144,6 +142,27 @@ static void mt6761_map_peripherals(DeviceState *gicdev)
                                     peripherals[i].base,
                                     peripherals[i].size);
     }
+
+    /* MTK SysReg devices */
+    DeviceState *dev;
+
+    dev = qdev_new(TYPE_MTK_SYSREG);
+    qdev_prop_set_uint32(dev, "length", 0x1000);
+    object_property_add_child(OBJECT(gicdev), "topckgen", OBJECT(dev));
+    sysbus_realize_and_unref(SYS_BUS_DEVICE(dev), &error_fatal);
+    sysbus_mmio_map(SYS_BUS_DEVICE(dev), 0, 0x10000000);
+
+    dev = qdev_new(TYPE_MTK_SYSREG);
+    qdev_prop_set_uint32(dev, "length", 0x1000);
+    object_property_add_child(OBJECT(gicdev), "infracfg_ao", OBJECT(dev));
+    sysbus_realize_and_unref(SYS_BUS_DEVICE(dev), &error_fatal);
+    sysbus_mmio_map(SYS_BUS_DEVICE(dev), 0, 0x10001000);
+
+    dev = qdev_new(TYPE_MTK_SYSREG);
+    qdev_prop_set_uint32(dev, "length", 0x1000);
+    object_property_add_child(OBJECT(gicdev), "apmixed", OBJECT(dev));
+    sysbus_realize_and_unref(SYS_BUS_DEVICE(dev), &error_fatal);
+    sysbus_mmio_map(SYS_BUS_DEVICE(dev), 0, 0x1000c000);
 
     mt6761_map_real_devices(gicdev);
 }

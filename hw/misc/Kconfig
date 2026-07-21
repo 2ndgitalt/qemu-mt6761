@@ -263,3 +263,5 @@ config XLNX_VERSAL_TRNG
     bool
 
 source macio/Kconfig
+config MTK_SYSREG
+    bool
