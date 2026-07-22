@@ -1,0 +1,1060 @@
+ gdb-multiarch -q kallsyms_kernel.elf 
+Reading symbols from kallsyms_kernel.elf...
+(No debugging symbols found in kallsyms_kernel.elf)
+(gdb) target remote :1234
+Remote debugging using :1234
+0x40000000 in ?? ()
+(gdb) thread 1
+[Switching to thread 1 (Thread 1.1)]
+#0  0x40000000 in ?? ()
+(gdb) display/i $pc
+1: x/i $pc
+=> 0x40000000:	mov	r0, #0
+(gdb) si
+0x40000004 in ?? ()
+1: x/i $pc
+=> 0x40000004:	ldr	r1, [pc, #4]	@ 0x40000010
+(gdb) 
+0x40000008 in ?? ()
+1: x/i $pc
+=> 0x40000008:	ldr	r2, [pc, #4]	@ 0x40000014
+(gdb) 
+0x4000000c in ?? ()
+1: x/i $pc
+=> 0x4000000c:	ldr	pc, [pc, #4]	@ 0x40000018
+(gdb) 
+0x40010000 in ?? ()
+1: x/i $pc
+=> 0x40010000:	nop			@ (mov r0, r0)
+(gdb) 
+0x40010004 in ?? ()
+1: x/i $pc
+=> 0x40010004:	nop			@ (mov r0, r0)
+(gdb) 
+0x40010008 in ?? ()
+1: x/i $pc
+=> 0x40010008:	nop			@ (mov r0, r0)
+(gdb) 
+0x4001000c in ?? ()
+1: x/i $pc
+=> 0x4001000c:	nop			@ (mov r0, r0)
+(gdb) 
+0x40010010 in ?? ()
+1: x/i $pc
+=> 0x40010010:	nop			@ (mov r0, r0)
+(gdb) 
+0x40010014 in ?? ()
+1: x/i $pc
+=> 0x40010014:	nop			@ (mov r0, r0)
+(gdb) 
+0x40010018 in ?? ()
+1: x/i $pc
+=> 0x40010018:	nop			@ (mov r0, r0)
+(gdb) 
+0x4001001c in ?? ()
+1: x/i $pc
+=> 0x4001001c:	nop			@ (mov r0, r0)
+(gdb) 
+0x40010020 in ?? ()
+1: x/i $pc
+=> 0x40010020:	b	0x40010034
+(gdb) 
+0x40010034 in ?? ()
+1: x/i $pc
+=> 0x40010034:	mrs	r9, CPSR
+(gdb) 
+0x40010038 in ?? ()
+1: x/i $pc
+=> 0x40010038:	bl	0x40013500
+(gdb) 
+0x40013500 in ?? ()
+1: x/i $pc
+=> 0x40013500:	mrs	r4, CPSR
+(gdb) 
+0x40013504 in ?? ()
+1: x/i $pc
+=> 0x40013504:	and	r4, r4, #31
+(gdb) 
+0x40013508 in ?? ()
+1: x/i $pc
+=> 0x40013508:	cmp	r4, r4
+(gdb) 
+0x4001350c in ?? ()
+1: x/i $pc
+=> 0x4001350c:	msrne	SP_hyp, lr, lsl pc
+(gdb) 
+0x40013510 in ?? ()
+1: x/i $pc
+=> 0x40013510:	cmp	r4, #26
+(gdb) 
+0x40013514 in ?? ()
+1: x/i $pc
+=> 0x40013514:	msrne	SP_hyp, lr, lsl pc
+(gdb) 
+0x4001003c in ?? ()
+1: x/i $pc
+=> 0x4001003c:	mov	r7, r1
+(gdb) 
+0x40010040 in ?? ()
+1: x/i $pc
+=> 0x40010040:	mov	r8, r2
+(gdb) 
+0x40010044 in ?? ()
+1: x/i $pc
+=> 0x40010044:	mrs	r2, CPSR
+(gdb) 
+0x40010048 in ?? ()
+1: x/i $pc
+=> 0x40010048:	tst	r2, #3
+(gdb) 
+0x4001004c in ?? ()
+1: x/i $pc
+=> 0x4001004c:	bne	0x40010058
+(gdb) 
+0x40010058 in ?? ()
+1: x/i $pc
+=> 0x40010058:	mrs	r0, CPSR
+(gdb) 
+0x4001005c in ?? ()
+1: x/i $pc
+=> 0x4001005c:	eor	r0, r0, #26
+(gdb) 
+0x40010060 in ?? ()
+1: x/i $pc
+=> 0x40010060:	tst	r0, #31
+(gdb) 
+0x40010064 in ?? ()
+1: x/i $pc
+=> 0x40010064:	bic	r0, r0, #31
+(gdb) 
+0x40010068 in ?? ()
+1: x/i $pc
+=> 0x40010068:	orr	r0, r0, #211	@ 0xd3
+(gdb) 
+0x4001006c in ?? ()
+1: x/i $pc
+=> 0x4001006c:	bne	0x40010084
+(gdb) 
+0x40010084 in ?? ()
+1: x/i $pc
+=> 0x40010084:	msr	CPSR_c, r0
+(gdb) 
+0x40010088 in ?? ()
+1: x/i $pc
+=> 0x40010088:	msr	SPSR_fsxc, r9
+(gdb) 
+0x4001008c in ?? ()
+1: x/i $pc
+=> 0x4001008c:	ldrble	sp, [r4], #1236	@ 0x4d4
+(gdb) 
+0x40010090 in ?? ()
+1: x/i $pc
+=> 0x40010090:	ldrble	sp, [r4], #1236	@ 0x4d4
+(gdb) 
+0x40010094 in ?? ()
+1: x/i $pc
+=> 0x40010094:	ldrble	sp, [r4], #1236	@ 0x4d4
+(gdb) 
+0x40010098 in ?? ()
+1: x/i $pc
+=> 0x40010098:	ldrble	sp, [r4], #1236	@ 0x4d4
+(gdb) 
+0x4001009c in ?? ()
+1: x/i $pc
+=> 0x4001009c:	ldrble	sp, [r4], #1236	@ 0x4d4
+(gdb) 
+0x400100a0 in ?? ()
+1: x/i $pc
+=> 0x400100a0:	mov	r4, pc
+(gdb) 
+0x400100a4 in ?? ()
+1: x/i $pc
+=> 0x400100a4:	and	r4, r4, #-134217728	@ 0xf8000000
+(gdb) 
+0x400100a8 in ?? ()
+1: x/i $pc
+=> 0x400100a8:	add	r4, r4, #32768	@ 0x8000
+(gdb) 
+0x400100ac in ?? ()
+1: x/i $pc
+=> 0x400100ac:	mov	r0, pc
+(gdb) 
+0x400100b0 in ?? ()
+1: x/i $pc
+=> 0x400100b0:	cmp	r0, r4
+(gdb) 
+0x400100b4 in ?? ()
+1: x/i $pc
+=> 0x400100b4:	ldrcc	r0, [pc, #432]	@ 0x4001026c
+(gdb) 
+0x400100b8 in ?? ()
+1: x/i $pc
+=> 0x400100b8:	addcc	r0, r0, pc
+(gdb) 
+0x400100bc in ?? ()
+1: x/i $pc
+=> 0x400100bc:	cmpcc	r4, r0
+(gdb) 
+0x400100c0 in ?? ()
+1: x/i $pc
+=> 0x400100c0:	orrcc	r4, r4, #1
+(gdb) 
+0x400100c4 in ?? ()
+1: x/i $pc
+=> 0x400100c4:	blcs	0x40010280
+(gdb) 
+0x40010280 in ?? ()
+1: x/i $pc
+=> 0x40010280:	mov	r3, #8
+(gdb) 
+0x40010284 in ?? ()
+1: x/i $pc
+=> 0x40010284:	b	0x400104ac
+(gdb) 
+0x400104ac in ?? ()
+1: x/i $pc
+=> 0x400104ac:	add	r12, pc, #28
+(gdb) 
+0x400104b0 in ?? ()
+1: x/i $pc
+=> 0x400104b0:	mrc	15, 0, r9, cr0, cr0, {0}
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x400104c8 in ?? ()
+1: x/i $pc
+=> 0x400104c8:	add	r12, r12, #20
+(gdb) 
+0x400104cc in ?? ()
+1: x/i $pc
+=> 0x400104cc:	b	0x400104b4
+(gdb) 
+0x400104b4 in ?? ()
+1: x/i $pc
+=> 0x400104b4:	ldr	r1, [r12]
+(gdb) 
+0x400104b8 in ?? ()
+1: x/i $pc
+=> 0x400104b8:	ldr	r2, [r12, #4]
+(gdb) 
+0x400104bc in ?? ()
+1: x/i $pc
+=> 0x400104bc:	eor	r1, r1, r9
+(gdb) 
+0x400104c0 in ?? ()
+1: x/i $pc
+=> 0x400104c0:	tst	r1, r2
+(gdb) 
+0x400104c4 in ?? ()
+1: x/i $pc
+=> 0x400104c4:	addeq	pc, r12, r3
+(gdb) 
+0x4001062c in ?? ()
+1: x/i $pc
+=> 0x4001062c:	b	0x400103d8
+(gdb) 
+0x400103d8 in ?? ()
+1: x/i $pc
+=> 0x400103d8:	mov	r12, lr
+(gdb) 
+0x400103dc in ?? ()
+1: x/i $pc
+=> 0x400103dc:	mrc	15, 0, r11, cr0, cr1, {4}
+(gdb) 
+0x400103e0 in ?? ()
+1: x/i $pc
+=> 0x400103e0:	tst	r11, #15
+(gdb) 
+0x400103e4 in ?? ()
+1: x/i $pc
+=> 0x400103e4:	movne	r6, #14
+(gdb) 
+0x400103e8 in ?? ()
+1: x/i $pc
+=> 0x400103e8:	blne	0x4001031c
+(gdb) 
+0x4001031c in ?? ()
+1: x/i $pc
+=> 0x4001031c:	sub	r3, r4, #16384	@ 0x4000
+(gdb) 
+0x40010320 in ?? ()
+1: x/i $pc
+=> 0x40010320:	bic	r3, r3, #255	@ 0xff
+(gdb) 
+0x40010324 in ?? ()
+1: x/i $pc
+=> 0x40010324:	bic	r3, r3, #16128	@ 0x3f00
+(gdb) 
+0x40010328 in ?? ()
+1: x/i $pc
+=> 0x40010328:	mov	r0, r3
+(gdb) 
+0x4001032c in ?? ()
+1: x/i $pc
+=> 0x4001032c:	lsr	r9, r0, #18
+(gdb) 
+0x40010330 in ?? ()
+1: x/i $pc
+=> 0x40010330:	lsl	r9, r9, #18
+(gdb) 
+0x40010334 in ?? ()
+1: x/i $pc
+=> 0x40010334:	add	r10, r9, #268435456	@ 0x10000000
+(gdb) 
+0x40010338 in ?? ()
+1: x/i $pc
+=> 0x40010338:	mov	r1, #18
+(gdb) 
+0x4001033c in ?? ()
+1: x/i $pc
+=> 0x4001033c:	orr	r1, r1, #3072	@ 0xc00
+(gdb) 
+0x40010340 in ?? ()
+1: x/i $pc
+=> 0x40010340:	add	r2, r3, #16384	@ 0x4000
+(gdb) 
+0x40010344 in ?? ()
+1: x/i $pc
+=> 0x40010344:	cmp	r1, r9
+(gdb) 
+0x40010348 in ?? ()
+1: x/i $pc
+=> 0x40010348:	cmpcs	r10, r1
+(gdb) 
+0x4001034c in ?? ()
+1: x/i $pc
+=> 0x4001034c:	bic	r1, r1, #28
+(gdb) 
+0x40010350 in ?? ()
+1: x/i $pc
+=> 0x40010350:	orrcc	r1, r1, #16
+(gdb) 
+0x40010354 in ?? ()
+1: x/i $pc
+=> 0x40010354:	orrcs	r1, r1, r6
+(gdb) 
+0x40010358 in ?? ()
+1: x/i $pc
+=> 0x40010358:	str	r1, [r0], #4
+(gdb) 
+0x4001035c in ?? ()
+1: x/i $pc
+=> 0x4001035c:	add	r1, r1, #1048576	@ 0x100000
+(gdb) 
+0x40010360 in ?? ()
+1: x/i $pc
+=> 0x40010360:	teq	r0, r2
+(gdb) 
+0x40010364 in ?? ()
+1: x/i $pc
+=> 0x40010364:	bne	0x40010344
+(gdb) 
+0x40010344 in ?? ()
+1: x/i $pc
+=> 0x40010344:	cmp	r1, r9
+(gdb) 
+0x40010348 in ?? ()
+1: x/i $pc
+=> 0x40010348:	cmpcs	r10, r1
+(gdb) 
+0x4001034c in ?? ()
+1: x/i $pc
+=> 0x4001034c:	bic	r1, r1, #28
+(gdb) 
+0x40010350 in ?? ()
+1: x/i $pc
+=> 0x40010350:	orrcc	r1, r1, #16
+(gdb) 
+0x40010354 in ?? ()
+1: x/i $pc
+=> 0x40010354:	orrcs	r1, r1, r6
+(gdb) 
+0x40010358 in ?? ()
+1: x/i $pc
+=> 0x40010358:	str	r1, [r0], #4
+(gdb) 
+0x4001035c in ?? ()
+1: x/i $pc
+=> 0x4001035c:	add	r1, r1, #1048576	@ 0x100000
+(gdb) 
+0x40010360 in ?? ()
+1: x/i $pc
+=> 0x40010360:	teq	r0, r2
+(gdb) 
+0x40010364 in ?? ()
+1: x/i $pc
+=> 0x40010364:	bne	0x40010344
+(gdb) 
+0x40010344 in ?? ()
+1: x/i $pc
+=> 0x40010344:	cmp	r1, r9
+(gdb) 
+0x40010348 in ?? ()
+1: x/i $pc
+=> 0x40010348:	cmpcs	r10, r1
+(gdb) 
+0x4001034c in ?? ()
+1: x/i $pc
+=> 0x4001034c:	bic	r1, r1, #28
+(gdb) 
+0x40010350 in ?? ()
+1: x/i $pc
+=> 0x40010350:	orrcc	r1, r1, #16
+(gdb) 
+0x40010354 in ?? ()
+1: x/i $pc
+=> 0x40010354:	orrcs	r1, r1, r6
+(gdb) 
+0x40010358 in ?? ()
+1: x/i $pc
+=> 0x40010358:	str	r1, [r0], #4
+(gdb) 
+0x4001035c in ?? ()
+1: x/i $pc
+=> 0x4001035c:	add	r1, r1, #1048576	@ 0x100000
+(gdb) 
+0x40010360 in ?? ()
+1: x/i $pc
+=> 0x40010360:	teq	r0, r2
+(gdb) 
+0x40010364 in ?? ()
+1: x/i $pc
+=> 0x40010364:	bne	0x40010344
+(gdb) 
+0x40010344 in ?? ()
+1: x/i $pc
+=> 0x40010344:	cmp	r1, r9
+(gdb) 
+0x40010348 in ?? ()
+1: x/i $pc
+=> 0x40010348:	cmpcs	r10, r1
+(gdb) 
+0x4001034c in ?? ()
+1: x/i $pc
+=> 0x4001034c:	bic	r1, r1, #28
+(gdb) 
+0x40010350 in ?? ()
+1: x/i $pc
+=> 0x40010350:	orrcc	r1, r1, #16
+(gdb) 
+0x40010354 in ?? ()
+1: x/i $pc
+=> 0x40010354:	orrcs	r1, r1, r6
+(gdb) 
+0x40010358 in ?? ()
+1: x/i $pc
+=> 0x40010358:	str	r1, [r0], #4
+(gdb) 
+0x4001035c in ?? ()
+1: x/i $pc
+=> 0x4001035c:	add	r1, r1, #1048576	@ 0x100000
+(gdb) 
+0x40010360 in ?? ()
+1: x/i $pc
+=> 0x40010360:	teq	r0, r2
+(gdb) 
+0x40010364 in ?? ()
+1: x/i $pc
+=> 0x40010364:	bne	0x40010344
+(gdb) 
+0x40010344 in ?? ()
+1: x/i $pc
+=> 0x40010344:	cmp	r1, r9
+(gdb) 
+0x40010348 in ?? ()
+1: x/i $pc
+=> 0x40010348:	cmpcs	r10, r1
+(gdb) 
+0x4001034c in ?? ()
+1: x/i $pc
+=> 0x4001034c:	bic	r1, r1, #28
+(gdb) 
+0x40010350 in ?? ()
+1: x/i $pc
+=> 0x40010350:	orrcc	r1, r1, #16
+(gdb) 
+0x40010354 in ?? ()
+1: x/i $pc
+=> 0x40010354:	orrcs	r1, r1, r6
+(gdb) 
+0x40010358 in ?? ()
+1: x/i $pc
+=> 0x40010358:	str	r1, [r0], #4
+(gdb) 
+0x4001035c in ?? ()
+1: x/i $pc
+=> 0x4001035c:	add	r1, r1, #1048576	@ 0x100000
+(gdb) 
+0x40010360 in ?? ()
+1: x/i $pc
+=> 0x40010360:	teq	r0, r2
+(gdb) 
+0x40010364 in ?? ()
+1: x/i $pc
+=> 0x40010364:	bne	0x40010344
+(gdb) 
+0x40010344 in ?? ()
+1: x/i $pc
+=> 0x40010344:	cmp	r1, r9
+(gdb) 
+0x40010348 in ?? ()
+1: x/i $pc
+=> 0x40010348:	cmpcs	r10, r1
+(gdb) 
+0x4001034c in ?? ()
+1: x/i $pc
+=> 0x4001034c:	bic	r1, r1, #28
+(gdb) 
+0x40010350 in ?? ()
+1: x/i $pc
+=> 0x40010350:	orrcc	r1, r1, #16
+(gdb) 
+0x40010354 in ?? ()
+1: x/i $pc
+=> 0x40010354:	orrcs	r1, r1, r6
+(gdb) 
+0x40010358 in ?? ()
+1: x/i $pc
+=> 0x40010358:	str	r1, [r0], #4
+(gdb) 
+0x4001035c in ?? ()
+1: x/i $pc
+=> 0x4001035c:	add	r1, r1, #1048576	@ 0x100000
+(gdb) 
+0x40010360 in ?? ()
+1: x/i $pc
+=> 0x40010360:	teq	r0, r2
+(gdb) 
+0x40010364 in ?? ()
+1: x/i $pc
+=> 0x40010364:	bne	0x40010344
+(gdb) 
+0x40010344 in ?? ()
+1: x/i $pc
+=> 0x40010344:	cmp	r1, r9
+(gdb) 
+0x40010348 in ?? ()
+1: x/i $pc
+=> 0x40010348:	cmpcs	r10, r1
+(gdb) 
+0x4001034c in ?? ()
+1: x/i $pc
+=> 0x4001034c:	bic	r1, r1, #28
+(gdb) 
+0x40010350 in ?? ()
+1: x/i $pc
+=> 0x40010350:	orrcc	r1, r1, #16
+(gdb) 
+0x40010354 in ?? ()
+1: x/i $pc
+=> 0x40010354:	orrcs	r1, r1, r6
+(gdb) 
+0x40010358 in ?? ()
+1: x/i $pc
+=> 0x40010358:	str	r1, [r0], #4
+(gdb) 
+0x4001035c in ?? ()
+1: x/i $pc
+=> 0x4001035c:	add	r1, r1, #1048576	@ 0x100000
+(gdb) 
+0x40010360 in ?? ()
+1: x/i $pc
+=> 0x40010360:	teq	r0, r2
+(gdb) 
+0x40010364 in ?? ()
+1: x/i $pc
+=> 0x40010364:	bne	0x40010344
+(gdb) 
+0x40010344 in ?? ()
+1: x/i $pc
+=> 0x40010344:	cmp	r1, r9
+(gdb) 
+0x40010348 in ?? ()
+1: x/i $pc
+=> 0x40010348:	cmpcs	r10, r1
+(gdb) 
+0x4001034c in ?? ()
+1: x/i $pc
+=> 0x4001034c:	bic	r1, r1, #28
+(gdb) 
+0x40010350 in ?? ()
+1: x/i $pc
+=> 0x40010350:	orrcc	r1, r1, #16
+(gdb) 
+0x40010354 in ?? ()
+1: x/i $pc
+=> 0x40010354:	orrcs	r1, r1, r6
+(gdb) 
+0x40010358 in ?? ()
+1: x/i $pc
+=> 0x40010358:	str	r1, [r0], #4
+(gdb) 
+0x4001035c in ?? ()
+1: x/i $pc
+=> 0x4001035c:	add	r1, r1, #1048576	@ 0x100000

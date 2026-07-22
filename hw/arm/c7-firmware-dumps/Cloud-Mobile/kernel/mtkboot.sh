@@ -1,0 +1,12 @@
+qemu-system-aarch64 \
+    -enable-kvm \
+    -M virt \
+    -cpu cortex-a53,aarch64=off \
+    -smp 2 \
+    -m 2048M \
+    -kernel ./kernel_payload \
+    -initrd ./initrd.img \
+    -dtb ./boot_a.bin_real.dtb \
+    -append "console=ttyAMA0 earlycon=pl011,0x09000000 root=/dev/ram rdinit=/init loglevel=8" \
+    -nographic \
+    -s -S
